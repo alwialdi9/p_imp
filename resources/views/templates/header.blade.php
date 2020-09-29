@@ -131,7 +131,6 @@
 
   {{-- <script src="{{ asset('terbilang/jquery.mask.min.js') }}"></script> --}}
   <script src="{{ asset('terbilang/terbilang.js') }}"></script>
-
   <script src="{{ asset('js/scripts.js') }}"></script>
   <script src="{{ asset('js/custom.js') }}"></script>
   <script src="{{ asset('js/footer.js') }}"></script>
@@ -378,6 +377,14 @@
 
   });
 </script>
-
+<script>
+  function printContent(el){
+     var restorepage = document.body.innerHTML;
+     var printcontent = document.getElementById(el).innerHTML;
+     document.body.innerHTML = printcontent;
+     window.print();
+     document.body.innerHTML = restorepage;
+  }
+ </script>
 </body>
 </html>

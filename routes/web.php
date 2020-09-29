@@ -71,11 +71,11 @@ Route::post('/invoice', 'InvoiceController@store');
 Route::get('/invoice/edit/{id}', 'InvoiceController@edit');
 Route::post('/invoice/update', 'InvoiceController@update');
 Route::get('/invoice/hapus/{id}', 'InvoiceController@hapus');
-Route::get('/print', 'InvoiceController@print')->name('print');
 Route::get('pelangganinvoice/{id}', 'InvoiceController@getinfo');
 Route::post('/searchinvoice', 'InvoiceController@show');
 
 Route::get('/invoice/lihat/{id}', 'InvoiceController@preview');
+// Route::get('/print', 'InvoiceController@print')->name('print');
 
 Route::post('/petty', 'PenjualanController@validation');
 Route::post('/petty', 'PettyCashController@store');

@@ -15,12 +15,12 @@
 
       <div class="section-body">
         <div class="invoice">
-          <div class="invoice-print">
+          <div class="invoice-print portrait" id="print_pdf">
             <div class="row">
               <div class="col-lg-12">
                 <div class="invoice-title">
                   <div class="row">
-                    <div class="col-md-8">
+                    <div class="col-md-8" sty>
                     <h2 class="">CV. INFORMATIKA MEDIA PRATAMA</h2>
                   </div>
                   <div class="col-md-4">
@@ -42,12 +42,12 @@
                   </div>
                   <div class="col-md-4 text-md-left">
                     {{-- <address> --}}
-                      <strong class="mr-3">Faktur# </strong>: {{ $faktur ?? '' }}<br>
+                      <strong class="mr-3">Faktur# </strong>: {{ $faktur }}<br>
                       {{-- 1234 Main<br>
                       Apt. 4B<br>
                       Bogor Barat, Indonesia --}}
                       <strong class="mr-3">Tanggal </strong>:
-                      {{ $tanggal ?? '' }}<br>
+                      {{ $tanggal }}<br>
                     {{-- </address> --}}
                   </div>
                 </div>
@@ -70,10 +70,10 @@
                           :<br>
                         </div>
                         <div class="col-md-8">
-                          {{ $nama ?? '' }}<br>
-                          {{ $alamat ?? '' }}<br><br>
-                          {{ $telp ?? '' }}<br>
-                          {{ $faks ?? '' }}
+                          {{ $nama }}<br>
+                          {{ $alamat }}<br><br>
+                          {{ $telp }}<br>
+                          {{ $faks }}
                         </div>
                       </div>
                     </address>
@@ -81,7 +81,7 @@
                   <div class="col-md-4 text-md-left">
                     <address>
                       <strong>Jatuh Tempo:</strong><br>
-                      {{ $tempo ?? '' }}<br><br>
+                      {{ $tempo }}<br><br>
                     </address>
                   </div>
                 </div>
@@ -102,14 +102,14 @@
                       <th class="text-right">Pajak</th>
                       <th class="text-right">Jumlah</th>
                     </tr>
-                    @foreach ($invoice ?? [] as $ket)
+                    @foreach ($invoice as $ket)
                     <tr>
                       <td>{{ $loop->iteration}}</td>
                       <td>{{ $ket->keterangan }}</td>
                       <td class="text-center">{{ $ket->kuantitas }}</td>
                       <td class="text-center">{{ $hargasatuan }}</td>
                       <td class="text-right">X</td>
-                      <td class="text-right">{{ $hargapenjualan ?? '' }}</td>
+                      <td class="text-right">{{ $hargapenjualan }}</td>
                     </tr>
                     @endforeach
                   </table>
@@ -130,20 +130,20 @@
                   <div class="col-lg-4 text-right">
                     <div class="invoice-detail-item">
                       <div class="invoice-detail-name"><strong>Subtotal (Rp)</strong></div>
-                      <div class="invoice-detail-value">{{ $hargapenjualan ?? ''  }}</div>
+                      <div class="invoice-detail-value">{{ $hargapenjualan  }}</div>
                     </div>
                     <div class="invoice-detail-item">
                       <div class="invoice-detail-name"><strong>termasuk Pajak<br>(PPN+PPH) 12.0%</strong></div>
-                      <div class="invoice-detail-value">{{ $info['pajak'] ?? '' }}</div>
+                      <div class="invoice-detail-value">{{ $info['pajak'] }}</div>
                     </div>
                     <hr class="mt-2 mb-2">
                     <div class="invoice-detail-item">
                       <div class="invoice-detail-name">Total</div>
-                    <div class="invoice-detail-value invoice-detail-value-lg">{{ $totaltagihan ?? '' }}</div>
+                    <div class="invoice-detail-value invoice-detail-value-lg">{{ $totaltagihan }}</div>
                     </div>
                     <div class="invoice-detail-item">
                       <div class="invoice-detail-name">Sisa Tagihan</div>
-                      <div class="invoice-detail-value">{{ $sisa ?? '' }}</div>
+                      <div class="invoice-detail-value">{{ $sisa }}</div>
                     </div>
                   </div>
                 </div>
@@ -190,7 +190,7 @@
                 <a href="{{ url('invoice/buatinvoice') }} " class="btn btn-icon icon-left btn-primary mr-3"><i class="far fa-edit"></i> Ubah Data</a>
             <a href="{{url('/invoice')}}" class="btn btn-danger btn-icon icon-left"><i class="fas fa-times"></i> Cancel</a>
             </div>
-          <a href="{{ route('print')}}" class="btn btn-warning btn-icon icon-left"><i class="fas fa-print"></i>Print</a>
+          <button onclick = "printContent('print_pdf')" class="btn btn-warning btn-icon icon-left"><i class="fas fa-print"></i>Print</button>
           </div>
         </div>
       </div>

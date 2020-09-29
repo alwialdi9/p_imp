@@ -30,7 +30,7 @@
                   {{ csrf_field() }} 
                     <div class="form-group">
                     <label for="email">{{ __('E-Mail Address') }}</label>
-                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autofocus tabindex="1">
+                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autofocus tabindex="1" autocomplete="off">
                     @error('email')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>

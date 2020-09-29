@@ -237,14 +237,7 @@ class InvoiceController extends Controller
         } else {
             $sisa = $totaltagihan;
         }
-
         // dd($faktur, $info, $tanggal, $nama, $alamat, $telp, $faks, $tempo);
         return view('invoice.preview', compact('invoice', 'info', 'faktur', 'tanggal', 'nama', 'alamat', 'telp', 'faks', 'tempo', 'hargasatuan', 'hargapenjualan', 'totaltagihan', 'sisa'));
-    }
-    public function print() 
-    {
-        $pdf = PDF::loadView('invoice.preview');
-        return $pdf->download('invoice');
-        // dd($pdf);
     }
 }
